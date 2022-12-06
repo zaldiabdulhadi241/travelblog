@@ -1,0 +1,2 @@
+RewriteEngine on
+RewriteRule ^pages/detail/([0-9]+) pages/detail/?id=$1
