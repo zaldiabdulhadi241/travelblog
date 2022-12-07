@@ -8,7 +8,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
     <meta name="description" content="" />
     <meta name="author" content="" />
-    <title>Travelblog</title>
+    <title>Travelblog - Detail</title>
     <link rel="icon" type="image/x-icon" href="../../assets/icon/favicon.ico" />
     <!-- Font Awesome icons (free version)-->
     <script src="https://use.fontawesome.com/releases/v6.1.0/js/all.js" crossorigin="anonymous"></script>
@@ -33,7 +33,7 @@
                     <li class="nav-item"><a class="nav-link px-lg-3 py-3 py-lg-4" href="../../">Home</a></li>
                     <li class="nav-item"><a class="nav-link px-lg-3 py-3 py-lg-4" href="../about/">About</a></li>
                     <li class="nav-item"><a class="nav-link px-lg-3 py-3 py-lg-4" href="../articles/">Articles</a></li>
-                    <li class="nav-item"><a class="nav-link px-lg-3 py-3 py-lg-4" href="../contact/">Contact</a></li>
+                    <li class="nav-item"><a class="nav-link px-lg-3 py-3 py-lg-4" href="https://travelbook.co.id/hubungi-kami" target="_blank">Contact</a></li>
                 </ul>
             </div>
         </div>
@@ -44,13 +44,16 @@
             <div class="row gx-4 gx-lg-5 justify-content-center">
                 <div class="col-md-10 col-lg-8 col-xl-7">
                     <div class="post-heading">
-                        <h1>Be like a diamond, precious and rare, not like a stone.</h1>
-                        <h2 class="subheading">Problems look mighty small from 150 miles up</h2>
+                        <?php $row = showQuotes("quotes", random_int(1, counter("quotes"))) ?>
+                        <blockquote class="blockquote text-white">
+                            <h1><q><?= $row[0]['quotes'] ?></q></h1>
+                        </blockquote>
                         <span class="meta">
-                            Posted by
-                            <a href="#!">Zaldi</a>
-                            on December 5, 2023
+                            by
+                            <a href=""><?= $row[0]['author'] ?></a>
+                            on <?= date('F d Y', strtotime($row[0]['postedAt'])) ?>
                         </span>
+
                     </div>
                 </div>
             </div>
@@ -77,7 +80,7 @@
                 <div class="col-md-10 col-lg-8 col-xl-7">
                     <ul class="list-inline text-center">
                         <li class="list-inline-item">
-                            <a href="#!">
+                            <a href="https://www.instagram.com/travelbook.co.id/" target="_blank">
                                 <span class="fa-stack fa-lg">
                                     <i class="fas fa-circle fa-stack-2x"></i>
                                     <i class="fab fa-instagram fa-stack-1x fa-inverse"></i>

@@ -8,7 +8,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
     <meta name="description" content="" />
     <meta name="author" content="" />
-    <title>TravelBlog</title>
+    <title>TravelBlog - Home</title>
     <link rel="stylesheet" href="./css/global.css">
     <link rel="icon" type="image/x-icon" href="assets/icon/favicon.ico" />
     <!-- Font Awesome icons (free version)-->
@@ -34,7 +34,7 @@
                     <li class="nav-item"><a class="nav-link px-lg-3 py-3 py-lg-4" href="">Home</a></li>
                     <li class="nav-item"><a class="nav-link px-lg-3 py-3 py-lg-4" href="./pages/about/">About</a></li>
                     <li class="nav-item"><a class="nav-link px-lg-3 py-3 py-lg-4" href="./pages/articles/">Articles</a></li>
-                    <li class="nav-item"><a class="nav-link px-lg-3 py-3 py-lg-4" href="./pages/contact/">Contact</a></li>
+                    <li class="nav-item"><a class="nav-link px-lg-3 py-3 py-lg-4" href="https://travelbook.co.id/hubungi-kami" target="_blank">Contact</a></li>
                 </ul>
             </div>
         </div>
@@ -56,17 +56,18 @@
     <div class="container px-4 px-lg-5">
         <div class="row gx-4 gx-lg-5 justify-content-center">
             <div class="col-md-10 col-lg-8 col-xl-7">
-                <?php foreach (showAll() as $row) : ?>
+                <?php $offset = random_int(0, counter("articles") - 3) ?>
+                <?php foreach (showAll("articles", "LIMIT 3 OFFSET $offset") as $row) : ?>
                     <!-- Post preview-->
                     <div class="post-preview">
-                        <a href="./pages/detail/<?= $row->id_article ?>">
-                            <h2 class="post-title fs-2"><?= $row->judul ?></h2>
-                            <h3 class="post-subtitle fs-4 article-description" style="text-overflow: ellipsis; overflow: hidden;"><?= $row->deskripsi ?> ?></h3>
+                        <a href="./pages/detail/<?= $row['id_article'] ?>">
+                            <h2 class="post-title fs-2"><?= $row['judul'] ?></h2>
+                            <h3 class="post-subtitle fs-4 article-description" style="text-overflow: ellipsis; overflow: hidden;"><?= $row['deskripsi'] ?> ?></h3>
                         </a>
                         <p class="post-meta">
                             Posted by
-                            <a href=""><?= $row->author ?></a>
-                            on <?= date('F d Y', strtotime($row->postedAt)) ?>
+                            <a href=""><?= $row['author'] ?></a>
+                            on <?= date('F d Y', strtotime($row['postedAt'])) ?>
                         </p>
                     </div>
                     <hr class="my-4" />
@@ -84,7 +85,7 @@
                 <div class="col-md-10 col-lg-8 col-xl-7">
                     <ul class="list-inline text-center">
                         <li class="list-inline-item">
-                            <a href="#!">
+                            <a href="https://www.instagram.com/travelbook.co.id/" target="_blank">
                                 <span class="fa-stack fa-lg">
                                     <i class="fas fa-circle fa-stack-2x"></i>
                                     <i class="fab fa-instagram fa-stack-1x fa-inverse"></i>

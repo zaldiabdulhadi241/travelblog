@@ -8,7 +8,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
     <meta name="description" content="" />
     <meta name="author" content="" />
-    <title>Travelblog</title>
+    <title>Travelblog - Articles</title>
     <link rel="stylesheet" href="../../css/global.css">
     <link rel="icon" type="image/x-icon" href="../../assets/icon/favicon.ico" />
     <!-- Font Awesome icons (free version)-->
@@ -24,7 +24,7 @@
     <!-- Navigation-->
     <nav class="navbar navbar-expand-lg navbar-light" id="mainNav">
         <div class="container px-4 px-lg-5">
-            <a class="navbar-brand" href="index.html">TravelBlog</a>
+            <a class="navbar-brand" href="../../">TravelBlog</a>
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
                 Menu
                 <i class="fas fa-bars"></i>
@@ -34,7 +34,7 @@
                     <li class="nav-item"><a class="nav-link px-lg-3 py-3 py-lg-4" href="../../">Home</a></li>
                     <li class="nav-item"><a class="nav-link px-lg-3 py-3 py-lg-4" href="../about/">About</a></li>
                     <li class="nav-item"><a class="nav-link px-lg-3 py-3 py-lg-4" href="">Articles</a></li>
-                    <li class="nav-item"><a class="nav-link px-lg-3 py-3 py-lg-4" href="../contact/">Contact</a></li>
+                    <li class="nav-item"><a class="nav-link px-lg-3 py-3 py-lg-4" href="https://travelbook.co.id/hubungi-kami" target="_blank">Contact</a></li>
                 </ul>
             </div>
         </div>
@@ -56,30 +56,40 @@
     <div class="container px-4 px-lg-5">
         <div class="row gx-4 gx-lg-5 justify-content-center">
             <div class="col-md-10 col-lg-8 col-xl-7">
-                <?php foreach (showAll() as $row) : ?>
+                <?php $limit = 4 ?>
+                <?php $count = counter("articles") ?>
+                <?php $page = (isset($_GET['page']) ? $_GET['page'] - 1 : 0) ?>
+                <?php $pagination = $count / $limit + 1 ?>
+                <?php $offset = $limit  * $page ?>
+                <?php foreach (showAll("articles", "LIMIT $limit OFFSET $offset") as $row) : ?>
                     <!-- Post preview-->
                     <div class="post-preview">
-                        <a href="../detail/<?= $row->id_article ?>">
-                            <img src="../../assets/img/<?= $row->gambar ?>" width="350px" height="230px" alt="">
-                            <h2 class="post-title fs-2"><?= $row->judul ?></h2>
-                            <h3 class="post-subtitle fs-4 article-description" style="text-overflow: ellipsis; overflow: hidden;"><?= nl2br($row->deskripsi) ?>a</h3>
+                        <a href="../detail/<?= $row['id_article'] ?>">
+                            <img src="../../assets/img/<?= $row['gambar'] ?>" width="350px" height="230px" alt="">
+                            <h2 class="post-title fs-2"><?= $row['judul'] ?></h2>
+                            <h3 class="post-subtitle fs-4 article-description" style="text-overflow: ellipsis; overflow: hidden;"><?= nl2br($row['deskripsi']) ?>a</h3>
                         </a>
                         <p class="post-meta">
                             Posted by
-                            <a href=""><?= $row->author ?></a>
-                            on <?= date('F d Y', strtotime($row->postedAt)) ?>
+                            <a href=""><?= $row['author'] ?></a>
+                            on <?= date('F d Y', strtotime($row['postedAt'])) ?>
                         </p>
                     </div>
                     <!-- Divider-->
                     <hr class="my-4" />
                 <?php endforeach ?>
 
-                <!-- Pager-->
-                <div class="d-flex justify-content-end mb-4"><a class="btn btn-primary text-uppercase" href="#!">Older Posts →</a></div>
+                <!-- Pagination -->
+                <nav aria-label="Page navigation">
+                    <ul class="pagination d-flex justify-content-end">
+                        <?php for ($i = 1; $i <= $pagination; $i++) : ?>
+                            <li class="page-item"><a class="page-link" href="<?= $page = $i ?>"><?= $i ?></a></li>
+                        <?php endfor ?>
+                    </ul>
+                </nav>
             </div>
         </div>
     </div>
-    <!-- Footer-->
     <!-- Footer-->
     <footer class="border-top">
         <div class="container px-4 px-lg-5">
@@ -87,7 +97,7 @@
                 <div class="col-md-10 col-lg-8 col-xl-7">
                     <ul class="list-inline text-center">
                         <li class="list-inline-item">
-                            <a href="#!">
+                            <a href="https://www.instagram.com/travelbook.co.id/" target="_blank">
                                 <span class="fa-stack fa-lg">
                                     <i class="fas fa-circle fa-stack-2x"></i>
                                     <i class="fab fa-instagram fa-stack-1x fa-inverse"></i>
