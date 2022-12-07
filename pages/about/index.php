@@ -31,14 +31,14 @@
                 <ul class="navbar-nav ms-auto py-4 py-lg-0">
                     <li class="nav-item"><a class="nav-link px-lg-3 py-3 py-lg-4" href="../../">Home</a></li>
                     <li class="nav-item"><a class="nav-link px-lg-3 py-3 py-lg-4" href="">About</a></li>
-                    <li class="nav-item"><a class="nav-link px-lg-3 py-3 py-lg-4" href="../articles/">Articles</a></li>
+                    <li class="nav-item"><a class="nav-link px-lg-3 py-3 py-lg-4" href="../articles/1">Articles</a></li>
                     <li class="nav-item"><a class="nav-link px-lg-3 py-3 py-lg-4" href="https://travelbook.co.id/hubungi-kami" target="_blank">Contact</a></li>
                 </ul>
             </div>
         </div>
     </nav>
     <!-- Page Header-->
-    <header class="masthead" style="background-image: url('assets/img/about-bg.jpg')">
+    <header class="masthead">
         <div class="container position-relative px-4 px-lg-5">
             <div class="row gx-4 gx-lg-5 justify-content-center">
                 <div class="col-md-10 col-lg-8 col-xl-7">
@@ -62,6 +62,8 @@
             </div>
         </div>
     </main>
+    <!-- Maps -->
+    <iframe class="w-75 mb-5 d-block m-auto" src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3966.3133645554867!2d106.86372671409147!3d-6.22234706267256!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x2e69f31fed7f20d9%3A0x9cf62bbe4c5c8a91!2sTRAVELBOOK!5e0!3m2!1sid!2sid!4v1670387652034!5m2!1sid!2sid" width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
     <!-- Footer-->
     <footer class="border-top">
         <div class="container px-4 px-lg-5">

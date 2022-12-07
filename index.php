@@ -33,7 +33,7 @@
                 <ul class="navbar-nav ms-auto py-4 py-lg-0">
                     <li class="nav-item"><a class="nav-link px-lg-3 py-3 py-lg-4" href="">Home</a></li>
                     <li class="nav-item"><a class="nav-link px-lg-3 py-3 py-lg-4" href="./pages/about/">About</a></li>
-                    <li class="nav-item"><a class="nav-link px-lg-3 py-3 py-lg-4" href="./pages/articles/">Articles</a></li>
+                    <li class="nav-item"><a class="nav-link px-lg-3 py-3 py-lg-4" href="./pages/articles/1">Articles</a></li>
                     <li class="nav-item"><a class="nav-link px-lg-3 py-3 py-lg-4" href="https://travelbook.co.id/hubungi-kami" target="_blank">Contact</a></li>
                 </ul>
             </div>
@@ -74,7 +74,7 @@
                 <?php endforeach ?>
                 <!-- Divider-->
                 <!-- Pager-->
-                <div class="d-flex justify-content-end mb-4"><a class="btn btn-primary text-uppercase" href="pages/articles/">More Articles →</a></div>
+                <div class="d-flex justify-content-end mb-4"><a class="btn btn-primary text-uppercase" href="pages/articles/1">More Articles →</a></div>
             </div>
         </div>
     </div>

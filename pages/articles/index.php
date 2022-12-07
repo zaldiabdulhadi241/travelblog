@@ -1,4 +1,8 @@
 <?php include "../../controllers/koneksi.php" ?>
+<?php if (!isset($_GET['page'])) {
+    header("Location:1");
+}
+?>
 
 <!DOCTYPE html>
 <html lang="en">
@@ -82,9 +86,15 @@
                 <!-- Pagination -->
                 <nav aria-label="Page navigation">
                     <ul class="pagination d-flex justify-content-end">
+                        <?php if ($page > 0) : ?>
+                            <li class="page-item"><a class="page-link" href="<?= $_GET['page'] - 1 ?>">Previous</a></li>
+                        <?php endif ?>
                         <?php for ($i = 1; $i <= $pagination; $i++) : ?>
                             <li class="page-item"><a class="page-link" href="<?= $page = $i ?>"><?= $i ?></a></li>
                         <?php endfor ?>
+                        <?php if ($_GET['page'] < 3) : ?>
+                            <li class="page-item"><a class="page-link" href="<?= $_GET['page'] + 1 ?>">Next</a></li>
+                        <?php endif ?>
                     </ul>
                 </nav>
             </div>
